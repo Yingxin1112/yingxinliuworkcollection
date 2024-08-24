@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黑色背景图片和视频</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            overflow-x: hidden; /* 禁止水平滚动 */
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .container img, .container video {
+            max-width: 100%;
+            height: auto;
+            margin: 5px; /* 图片和视频之间的间距 */
+        }
+
+        .container video.playing {
+            opacity: 1; /* 播放时显示视频 */
+        }
+
+
+
+        .aditional-container {
+            position: relative;
+            width: calc(100% - 1100px); /* 300px padding on each side */
+            max-width: 100%;
+            align-items: center;
+            margin: 0 600px; /* Centering the video with 300px from each side */
+            margin-top: 170px; /* Space between the first and second video */
+            margin-bottom: 170px; /* Space between the first and second video */
+        }
+
+        .aditional-container img, .aditional-container video {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .aditional-container video.playing {
+            opacity: 1; /* 播放时显示视频 */
+        }
+
+        @media (max-width: 768px) {
+        .aditional-container {
+                width: calc(100% - 100px); /* 10px padding on each side for mobile */
+                margin: 50px;
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="/Users/liuyingxin/Desktop/web/web/co1.png" alt="示例图片1">
+        <img src="/Users/liuyingxin/Desktop/web/web/co2.png" alt="示例图片2">
+        <img src="/Users/liuyingxin/Desktop/web/web/co4.png" alt="示例图片3">
+        <video src="/Users/liuyingxin/Desktop/web/web/co4.mp4" autoplay muted loop></video>
+        <img src="/Users/liuyingxin/Desktop/web/web/co5.png" alt="示例图片4">
+        <img src="/Users/liuyingxin/Desktop/web/web/co6.png" alt="示例图片6">
+        <video src="/Users/liuyingxin/Desktop/web/web/co7.mp4" autoplay muted loop></video>
+        <img src="/Users/liuyingxin/Desktop/web/web/co28.png" alt="示例图片5">
+       <img src="/Users/liuyingxin/Desktop/web/web/co26.png" alt="示例图片6">
+        <img src="/Users/liuyingxin/Desktop/web/web/co29.png" alt="示例图片1">
+    </div>
+    <div class= "aditional-container">
+        <img src="/Users/liuyingxin/Desktop/web/web/co21.jpg" alt="示例图片1">
+    </div>
+        <div class= "container">
+        <img src="/Users/liuyingxin/Desktop/web/web/co33.png" alt="示例图片1">
+    </div>
+
+
+    <script>
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top < window.innerHeight &&
+                rect.bottom >= 0
+            );
+        }
+
+        function checkVideos() {
+            const videos = document.querySelectorAll('.container video');
+            videos.forEach(video => {
+                if (isElementInViewport(video)) {
+                    if (!video.classList.contains('playing')) {
+                        video.classList.add('playing');
+                        video.play();
+                    }
+                } else {
+                    if (video.classList.contains('playing')) {
+                        video.classList.remove('playing');
+                        video.pause();
+                    }
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkVideos);
+        window.addEventListener('resize', checkVideos); // 处理窗口大小变化时的情况
+
+        // 初次加载时检查视频
+        checkVideos();
+    </script>
+</body>
+</html>
