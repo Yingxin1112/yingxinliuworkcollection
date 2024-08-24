@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #000;
+        }
+        .container {
+            max-width: 1800px;
+            margin: auto;
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%; /* 占屏幕宽度的三分之二 */
+            text-align: left;
+            padding: 20px;
+            background-color: transparent;
+            z-index: 1000;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        h1 {
+            font-size: 44px; /* 设置h1的字体大小为32像素 */
+            margin: 0; /* 确保标题上下无额外空白 */
+            color: lightgray;
+        }
+
+        .description {
+            max-width: 800px;
+            margin: 20px 0;
+        }
+
+        .description p {
+            font-size: 13px; /* 设置p的字体大小为18像素 */
+            line-height: 1.3; /* 设置行高为字体大小的1.6倍 */
+            color: lightgray; /* 设置文字颜色为浅灰色 */
+        }
+
+        .description-second{
+            max-width: 800px;
+            margin: 20px 0;
+        }
+
+        .description-second p {
+            font-size: 13px; /* 设置p的字体大小为18像素 */
+            line-height: 1.3; /* 设置行高为字体大小的1.6倍 */
+            color: lightgray; /* 设置文字颜色为浅灰色 */
+        }
+
+        .videos {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .video {
+            width: 49%;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .full-width-image {
+            width: 100%;
+            max-width: 1660px;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 20px; /* Add margin bottom to separate from the videos */
+        }
+
+        @media (max-width: 1200px) {
+            .video {
+                width: 100%;
+                margin-bottom: 10px;
+                margin-left:1\0px;
+                padding: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .title h1 {
+                font-size: 35px;
+                margin-bottom: 10px;
+                                padding: 0;
+
+            }
+
+            .description p {
+                font-size: 12px;
+                width: calc(100% - 10px); /* 确保标题和描述宽度适应屏幕并留出左右边距 */
+                text-align: left;
+                line-height: 1.2;
+                    padding: 0;
+            }
+
+            .container {
+                padding: 0px;
+            }
+
+                    .description-second{
+            width:calc(100% - 10px);
+            margin: 10px 0;
+               text-align: left;
+                line-height: 1.2;
+                    padding: 0;
+
+        }
+
+        .description-second p {
+            font-size: 13px; /* 设置p的字体大小为18像素 */
+            line-height: 1.2; /* 设置行高为字体大小的1.6倍 */
+            color: lightgray; /* 设置文字颜色为浅灰色 */
+                padding: 0;
+        }
+
+        }
+
+        .responsive-image {
+            width: 100%;
+            max-width: 1660px; /* Adjust max-width as needed */
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 10px; /* Adjust margin-bottom for spacing */
+                padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>TENET</h1>
+        </div>
+        <div class="description">
+            <p>Christopher Nolan's unique approach to timeline editing has crafted a distinctive narrative structure in his films. I aimed to utilize the flexibility in reading brought by the typography and the unique folding method of newspapers to explore the relationship between typographic language and narrative structure. In many publications, typography often serves a supportive role, but I sought to use it to offer audiences a different storytelling experience, allowing typography to deeply engage with the reading process and narrative. One of the unique charms of newspapers is the flexibility of their pages. Through typographic design, I enabled readers to experience both the narrative timeline and the real-time structure of Nolan's films by reading while folded and unfolded, helping the audience to better understand the story of Tenet.</p>
+        </div>
+        <div class="videos">
+            <div class="video">
+                <video id="video1" muted loop>
+                    <source src="file:///Users/liuyingxin/Desktop/web/web/new1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video">
+                <video id="video2" muted loop>
+                    <source src="file:///Users/liuyingxin/Desktop/web/web/new2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+        <img class="full-width-image" src="file:///Users/liuyingxin/Desktop/web/web/new11.png" alt="Full Width Image">
+        <img class="full-width-image" src="file:///Users/liuyingxin/Desktop/web/web/new4.png" alt="Another Full Width Image">
+                  <div class="description-second">
+            <p>Each character has their own column in the newspaper, with their dialogues and storylines advancing along their respective paths, intertwining, separating, and looping, much like trains traveling parallel or diverging on different tracks. The various timelines intersect, overlap, and eventually form a closed loop. When you finish reading the entire sequence of the newspaper's cinematic narrative, you'll find that time has closed in on itself, bringing you back to the starting point. You can also read each newspaper page individually to explore what exactly happened on a specific day within the film's real-world timeline.</p>
+        </div>
+        <img class="responsive-image" src="file:///Users/liuyingxin/Desktop/web/web/new10.GIF" alt="Responsive Image 1">
+                    <div class="description-second">
+                    <p>I used left-aligned and right-aligned typography to differentiate between forward and reverse chronology, helping readers understand the time point of the scene they are currently reading. I did not provide any specific reading instructions—you can read the reverse-chronology scenes in order and still achieve a coherent experience. Just like in the movie Tenet, we can understand the reverse chronology from a forward perspective, or interpret the forward chronology from a reverse perspective; it’s all like watching cars driving backward and people walking in reverse—time becomes a game of perspectives before our eyes.</p>
+        </div>
+        <img class="responsive-image" src="file:///Users/liuyingxin/Desktop/web/web/new12.png" alt="Responsive Image 2">
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var videos = document.querySelectorAll('video');
+
+            var options = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5
+            };
+
+            function handleIntersect(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.play();
+                    } else {
+                        entry.target.pause();
+                    }
+                });
+            }
+
+            var observer = new IntersectionObserver(handleIntersect, options);
+
+            videos.forEach(video => {
+                observer.observe(video);
+            });
+        });
+    </script>
+</body>
+</html>
