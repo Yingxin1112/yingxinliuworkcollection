@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频展示</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: lightgray;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+              font-family: Arial, sans-serif;
+        }
+        .video-container {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            padding: 20px 30px 0; /* 顶端20px，左右内边距30px */
+            box-sizing: border-box;
+            width: 100%;
+            max-width: calc(100% - 60px); /* 确保视频容器不会超出屏幕宽度 */
+        }
+        .video-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1; /* 默认占用所有空间 */
+        }
+        .video-item:first-child {
+            flex: 1.7; /* 左边视频占用1.7倍空间 */
+        }
+        .video-item:last-child {
+            flex: 1; /* 右边视频占用1倍空间 */
+        }
+        video {
+            height: auto;
+            max-height: calc(100vh - 80px); /* 限制视频的最大高度，留出顶部和底部的间距 */
+            max-width: 100%; /* 限制视频宽度，考虑到间距 */
+            object-fit: cover;
+        }
+        .video-title {
+            margin: 10px 0; /* 标题上下间距 */
+            font-size: 35px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .video-description {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.3;
+        }
+        .additional-video {
+            margin: 20px 10px; /* 顶部20px，左右内边距10px */
+            width: calc(100% - 800px); /* 视频宽度减去左右内边距 */
+            max-width: calc(100% - 800px); /* 限制视频宽度 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .additional-video video {
+            width: 100%; /* 确保视频宽度填满容器 */
+            height: auto;
+        }
+        .additional-video .video-title,
+        .additional-video .video-description {
+            width: calc(100% - 20px); /* 确保标题和描述宽度适应屏幕并留出左右边距 */
+        }
+        @media (max-width: 768px) {
+            .video-container {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px 10px; /* 顶端20px，左右内边距10px */
+            }
+            .video-item {
+                width: 100%; /* 确保每个视频项宽度适应屏幕 */
+            }
+            .additional-video {
+                width: calc(100% - 20px); /* 确保新视频容器宽度适应屏幕 */
+                margin: 20px 10px; /* 确保与屏幕的左右边距一致 */
+                max-width: calc(100% - 20px); /* 限制视频宽度 */
+            }
+
+            .additional-video .video-title,
+            .additional-video .video-description {
+                width: calc(100% - 20px); /* 确保标题和描述宽度适应屏幕并留出左右边距 */
+                              text-align: left;
+            }
+
+            .video-title {
+                width: calc(100% - 20px); /* 确保标题和描述宽度适应屏幕并留出左右边距 */
+                text-align: left;
+            }
+
+            .video-description {
+                width: calc(100% - 20px); /* 确保标题和描述宽度适应屏幕并留出左右边距 */
+                text-align: left;
+                line-height: 1.2;
+            }
+            video {
+                max-width: calc(100% - 20px); /* 视频宽度减去左右内边距 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="additional-video">
+            <video src="/Users/liuyingxin/Desktop/web/web/code1.mp4" autoplay loop muted></video>
+            <div class="video-title">FACEFLOW</div>
+            <div class="video-description">Interact with dynamic fonts through facial expressions. Users' facial movements affect the changes and dynamics of the fonts in real time, showcasing different shapes and styles, and providing a unique visual experience and personalized content</div>
+    </div>
+            <div class="additional-video">
+            <video src="/Users/liuyingxin/Desktop/web/web/code2.mp4" autoplay loop muted></video>
+            <div class="video-title">TUTTI</div>
+            <div class="video-description">Sound represents our relationship with space, creating a situational dialogue where the background noise and conversation blend into a collective chorus. The scene incorporates multiple conversations, the language of white noise, and poetic dialogue, connecting space and individuals through the language of sound. The volume and speed of speech, the intensity of white noise, and the fluctuations and pauses all intertwine. Between the white noise and spoken words lies the beginning of our dialogue with space and the start of establishing relationships. The form of the text—its size, weight, and spacing—is determined by the voice of the speaker.</div>
+        </div>
+
+    <div class="additional-video">
+        <video src="/Users/liuyingxin/Desktop/web/web/code6.mp4" autoplay loop muted></video>
+        <div class="video-title">DATA UNIVERSE</div>
+        <div class="video-description">In the data universe, the growth of information and data is closely intertwined with user interaction. By engaging with users, we can enhance pattern responses and drive the growth patterns of data. This process not only reflects the dynamic evolution of data but also demonstrates how user participation influences the growth and transformation of information.。</div>
+    </div>
+    <div class="additional-video">
+        <video src="/Users/liuyingxin/Desktop/web/web/between.mp4" autoplay loop muted></video>
+        <div class="video-title">LOADING</div>
+        <div class="video-description">The interface is the threshold we cross into virtual space. As technology and design continue to evolve, we strive to provide users with a faster, more comfortable virtual experience. The process of data loading and constructing virtual spaces is accelerating, gradually blurring the boundaries between reality and the network. Through visual metaphors, I symbolize the cognitive shifts users experience in this blurred boundary state when perceiving the virtual world. Although this change is subtle, its impact is profound.During the minute of loading, I guide users to interact with the interface, highlighting the gap between the virtual and the real. This design not only emphasizes the blurring of boundaries between reality and the virtual in the modern network environment but also showcases the process of transitioning between different spaces. The user’s actions alter the visual effects of the interface, reflecting how individual behavior influences the virtual world. When the loading is complete, it seems as if the user has entered a real world, but upon closer inspection, it differs from what was perceived before entering. The virtual world is a reinterpretation of reality, but with its own distinctions. This also reveals that everyone’s version of reality is altered by virtual space. This experience prompts users to reflect on the blurred boundaries between reality and the virtual, exploring the mutual influence between user cognition and the virtual world, and offers a rebellious commentary on this phenomenon.</div>
+    </div>
+
+    <div class="additional-video">
+        <video src="/Users/liuyingxin/Desktop/web/web/code8.mp4" autoplay loop muted></video>
+        <div class="video-title">ESCAPE</div>
+        <div class="video-description">
+            <p>"Escape" is a small game I designed based on the movie Silenced. The game aims to make players experience the emotional and psychological changes under the gaze and being gazed upon by switching roles. This, in turn, better triggers the audience’s reflection and evokes sympathy and understanding for the students in the deaf-mute school oppressed by authority.</p>
+
+<p>The game consists of two stages:</p>
+
+<p>Stage One: The Player as the Pursuer
+In this stage, the player needs to catch the "gaze" targets 5 times within a limited time. Each successful catch represents capturing a student from the deaf-mute school. If the player successfully catches all the targets, the game ends, and the player wins, with no change in their role.</p>
+
+<p>Stage Two: The Player as the Hider
+If the player fails in the first stage, their role will automatically switch, making them the hider. In this stage, the player needs to reach the black door within the limited time while avoiding the randomly appearing "gaze" targets. During this stage, the player’s actions are limited to escaping and hiding.</p>
+
+<p>In the movie, the students have no means of resisting the oppressive authority except hiding. In the game, I have added a resistance mechanism that allows those who have been caught to fight back against the player. This design aims to evoke empathy in players, helping them to deeply understand the pain and helplessness suffered by the victims, thus triggering deeper reflection and emotional resonance.</p></div>
+    </div>
+
+    <div class="additional-video">
+        <video src="/Users/liuyingxin/Desktop/web/web/code5.mp4" autoplay loop muted></video>
+        <div class="video-title">DIGITAL SELF-PORTRAIT</div>
+        <div class="video-description">
+Concept:
+
+The digital self-portrait is more than just a simple image; it is a dynamic representation of the user's emotions and identity. By utilizing facial tracking and recognition technology, every expression and subtle facial movement of the user is captured and transformed into a unique visual form. This interaction not only allows users to see the immediate reflection of their emotions but also displays the movement data of their facial features as a visual feedback, revealing the data dimensions behind facial expressions. It showcases the deep interaction between individuals and technology in the digital age, reflecting the fluidity and diversity of our identity, and inspires users to rethink self-awareness.</div>
+    </div>
+    <div class="additional-video">
+        <video src="/Users/liuyingxin/Desktop/web/web/code9.mp4" autoplay loop muted></video>
+        <div class="video-title">EMOQUEST</div>
+        <div class="video-description">In this mental health digital platform, I have reclassified 58 emotions based on psychological research and surveys. Through innovative arrangements, interactive methods, and information retrieval techniques, the platform helps users gain a deeper understanding of the diversity and complexity of emotions. The website aims to challenge stereotypes about emotions, such as viewing emotions like "sadness" or "anger" as negative and something to be controlled or avoided. Instead, it emphasizes that emotions are simply signals, indicating underlying issues that need to be explored.By using this platform, users can not only better recognize and understand their various emotions but also learn to accept and confront them, thereby effectively alleviating psychological stress and emotional problems. Ultimately, the website guides users beyond the surface recognition of emotions, encouraging them to delve deeper into their emotional landscape to discover themselves and achieve emotional self-regulation and growth.</div>
+    </div>
+    <div class="additional-video">
+        <video src="/Users/liuyingxin/Desktop/web/web/code10.mp4" autoplay loop muted></video>
+        <div class="video-title">CULTURAL INTERWEAVING MAP</div>
+        <div class="video-description">Weaving the map is more than just marking geographic locations; it represents an innovative way of thinking. Through random links, we break away from traditional linear relationships and connect various locations and cultural elements in new and exciting ways. This approach enhances community engagement, encouraging users to explore and participate, thereby creating a more cohesive and interactive cultural community.
+
+Each link and node on the map carries unique cultural creativity and community atmosphere, sparking endless creativity and possibilities. This weaving method not only makes the map more dynamic and interesting but also promotes the spread and exchange of culture, providing community members with rich interactive experiences and opportunities for creative expression.</div>
+    </div>
+</body>
+</html>
