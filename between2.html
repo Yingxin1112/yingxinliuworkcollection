@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品集</title>
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+}
+
+.video-description-container {
+    position: relative;
+    margin-bottom: -90px; /* 视频和下一个元素之间的间距 */
+    z-index: 10; /* 确保文字在顶层 */
+    text-align: left; /* 文字居左 */
+    color: lightgray; /* 文字颜色 */
+    padding-top: 40px; /* 文字距视频上方的间距 */
+    padding-bottom: 0px;
+    margin-left: 20px;
+    margin-right: 20px; /* 确保左右边距统一 */
+    width: calc(100% - 900px); /* 适应屏幕宽度 */
+}
+
+.video-description-container h2 {
+    font-weight: bold;
+    font-size: 45px; /* 描述文字的大小 */
+    margin: 0;
+}
+
+.video-description-container p {
+    font-size: 13px; /* 描述文字的大小 */
+    margin: 0;
+    line-height: 1.3; /* 设置行高 */
+}
+
+.image-container {
+    margin-top: 0; /* 去除图片与文字之间的间距 */
+    margin-left: 20px;
+    margin-right: 20px; /* 确保左右边距统一 */
+    width: calc(100% - 40px); /* 调整图片宽度，适应大屏幕 */
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.image-container-second {
+    margin-top: 30px; /* 去除图片与文字之间的间距 */
+    margin-left: 40px;
+    margin-right: 20px; /* 确保左右边距统一 */
+    width: calc(100% - 40px); /* 调整图片宽度，适应大屏幕 */
+}
+
+.image-container-second img {
+    width: 100%;
+    height: auto;
+}
+.video-container {
+    margin-top: 20px; /* 与图片之间的间距 */
+    margin-left: 80px;
+    margin-right: 20px; /* 确保左右边距统一 */
+}
+
+.video-container video {
+    width: calc(100% - 20px); /* 调整视频宽度，适应大屏幕 */
+    height: auto;
+    display: block;
+}
+
+.video-container-second {
+    margin-top: 20px; /* 与图片之间的间距 */
+    margin-left: 80px;
+    margin-right: 20px; /* 确保左右边距统一 */
+}
+
+.video-container-second video {
+    width: calc(100% - 20px); /* 调整视频宽度，适应大屏幕 */
+    height: auto;
+    display: block;
+}
+
+
+.video-group-container {
+    margin-top: 20px; /* 与上一个元素之间的间距 */
+    margin-left: 20px;
+    margin-right: 20px; /* 确保左右边距统一 */
+    display: flex;
+    gap: 10px; /* 视频之间的间距 */
+}
+
+.video-group-container video {
+    width: calc(50% - 5px); /* 每个视频占50%的宽度，减去间隔 */
+    height: auto;
+}
+
+.iframe-container {
+    position: relative;
+    margin-top: 20px; /* 与上一个元素之间的间距 */
+    margin-left: 20px; /* 确保左右边距统一 */
+    margin-right: 20px; /* 确保左右边距统一 */
+    padding: 0; /* 移除额外的 padding */
+    width: calc(100% - 40px); /* 调整 iframe 宽度 */
+    height: 900px; /* 高度可以根据需要调整 */
+    overflow: hidden; /* 隐藏超出范围的内容 */
+}
+
+.iframe-top-block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 45px; /* 黑色方块的高度 */
+    background-color: black; /* 方块颜色 */
+    z-index: 20; /* 确保方块在 iframe 上面 */
+}
+
+.iframe-container iframe {
+    width: 100%;
+    height: 100%; /* 高度可以根据需要调整 */
+    border: none;
+    position: relative;
+    z-index: 10; /* 确保 iframe 在方块下面 */
+}
+
+@media (max-width: 768px) {
+    .video-description-container {
+        margin-bottom: -10px; /* 视频和下一个元素之间的间距 */
+        padding-top: 50px; /* 文字距视频上方的间距 */
+        width: calc(100% - 20px); /* 适应小屏幕宽度 */
+        margin-left: 10px; /* 确保左右边距统一 */
+        margin-right: 10px; /* 确保左右边距统一 */
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    .video-description-container h2 {
+        font-size: 35px; /* 调整标题的字体大小 */
+        line-height: 1.5; /* 可选：调整行高以优化间距 */
+        margin-bottom: 10px;
+    }
+
+    .video-description-container p {
+        font-size: 12px; /* 调整描述文字的字体大小 */
+        line-height: 1.2; /* 设置行高 */
+    }
+
+.image-container {
+    margin-top: 10; /* 去除图片与文字之间的间距 */
+    margin-left: 10px;
+    margin-right: 10px; /* 确保左右边距统一 */
+    width: calc(100% - 20px); /* 调整图片宽度，适应大屏幕 */
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.image-container-second {
+    margin-top: 60px; /* 去除图片与文字之间的间距 */
+    margin-left: 10px;
+    margin-right: 10px; /* 确保左右边距统一 */
+    width: calc(100% - 20px); /* 调整图片宽度，适应大屏幕 */
+}
+
+.image-container-second img {
+    width: 100%;
+    height: auto;
+}
+
+
+    .video-container {
+        margin-top: 60px; /* 与图片之间的间距 */
+        margin-left: 10px; /* 确保左右边距统一 */
+        margin-right: 10px; /* 确保左右边距统一 */
+        margin-bottom: 60px;
+        width: calc(100% - 20px); /* 调整视频宽度，适应小屏幕 */
+    }
+
+    .video-container video {
+        width: 100%;
+    }
+
+    .video-container-second {
+        margin-top: 40px; /* 与图片之间的间距 */
+        margin-left: 10px; /* 左侧边距 */
+        margin-right: 10px; /* 右侧边距 */
+        margin-bottom: 40px; /* 底部边距 */
+        width: calc(100% - 20px); /* 调整视频宽度以适应新的边距 */
+        height: auto;
+    }
+
+    .video-container-second video {
+        width: 100%;
+    }
+
+    .video-group-container {
+        flex-direction: column; /* 小屏幕上视频上下排列 */
+        gap: 10px; /* 视频之间的间距 */
+        margin-top: 10px; /* 与上一个元素之间的间距 */
+        width: calc(100% - 20px); /* 调整视频宽度，适应小屏幕 */
+        margin-left: 10px; /* 确保左右边距统一 */
+        margin-right: 10px; /* 确保左右边距统一 */
+    }
+
+    .video-group-container video {
+        width: 100%;
+    }
+
+    .iframe-container {
+        margin-top: 40px; /* 与上一个元素之间的间距 */
+        margin-left: 10px; /* 确保左右边距统一 */
+        margin-right: 10px; /* 确保左右边距统一 */
+        padding: 0; /* 移除额外的 padding */
+        width: calc(100% - 20px); /* 调整 iframe 宽度，适应小屏幕 */
+    }
+
+    .iframe-container iframe {
+        width: 100%; /* 调整 iframe 宽度 */
+        height: 300px; /* 高度可以根据需要调整 */
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+    </header>
+    <main>
+        <section class="video-description-container">
+            <h2>HERE AND THERE</h2>
+            <p>The media not only profoundly influence our behavior but also shape the way we read and process information. The physical characteristics of information carriers, such as their form and structure, directly affect our perception and understanding of information. As our behavior changes during the process of interacting with media and processing information, how does this, in turn, affect the way we read information? Different interactive methods—such as flipping pages, scrolling, zooming in and out, moving closer or farther away, or pausing—can all impact how we interpret information.Through a combination of interactive websites with information typography and coding, book production, and exhibition planning, I explore this theme: "How do we read?" These different interactive approaches aim to reveal how media and behavior jointly influence our reading experience. Please visit the interactive platform at the bottom of the page on your computer to explore these interactive experiments.</p>
+        </section>
+
+        <!-- 图片部分 -->
+        <div class="image-container">
+            <img src="/Users/liuyingxin/Desktop/web/web/between2.png" alt="Description of the image">
+        </div>
+
+        <!-- 第一个视频部分 -->
+        <div class="video-container">
+            <video autoplay loop muted playsinline>
+                <source src="/Users/liuyingxin/Desktop/web/web/between1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- 两个并排的视频部分 -->
+        <div class="video-group-container">
+            <video autoplay loop muted playsinline>
+                <source src="/Users/liuyingxin/Desktop/web/web/between4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video autoplay loop muted playsinline>
+                <source src="/Users/liuyingxin/Desktop/web/web/between3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+
+               <!-- 图片部分 -->
+        <div class="image-container-second">
+            <img src="/Users/liuyingxin/Desktop/web/web/between8.png" alt="Description of the image">
+        </div>
+
+
+        <!-- 第一个视频部分 -->
+        <div class="video-container-second">
+            <video autoplay loop muted playsinline>
+                <source src="/Users/liuyingxin/Desktop/web/web/between9.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- iframe 部分 -->
+        <div class="iframe-container">
+            <div class="iframe-top-block"></div> <!-- 黑色方块 -->
+            <iframe src="https://editor.p5js.org/yliu91/full/hR4EYv2SK" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </main>
+</body>
+</html>
