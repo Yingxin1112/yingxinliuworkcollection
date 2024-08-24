@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黑色背景图片和视频</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+            width: calc(100% - 20px);
+            flex-direction: column;
+        }
+
+        .container img, .container video {
+            width: 100%;  /* 将图片和视频的宽度设置为容器的100% */
+            height: auto;
+            margin: 5px; /* 图片和视频之间的间距 */
+            max-width: width: calc(100% - 20px);  /* 设置最大宽度为700px，确保所有图片和视频的最大宽度一致 */
+        }
+
+        .description {
+            width: calc(100% - 20px); /* 将描述的最大宽度设置为700px，与图片一致 */
+            margin: 10px 0;
+            text-align: center;
+            color: lightgray; /* 设置文字颜色为浅灰色 */
+        }
+
+        .description p {
+            font-size: 13px; /* 设置p的字体大小为13像素 */
+            line-height: 1.5; /* 设置行高为字体大小的1.5倍 */
+        }
+
+        /* 小屏幕（例如最大宽度为768px）的样式 */
+        @media (max-width: 768px) {
+            .description p {
+                font-size: 10px; /* 调整p的字体大小为10像素 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="/Users/liuyingxin/Desktop/web/web/pain1.png" alt="示例图片1">
+        <div class="description">
+            <p>30cm * 40cm &nbsp;&nbsp;&nbsp; Chinese Ink, XUAN Paper</p>
+        </div>
+        <img src="/Users/liuyingxin/Desktop/web/web/pain2.png" alt="示例图片2">
+        <div class="description">
+            <p>40cm * 95cm, 20cm * 95cm, 20cm * 95cm, 40cm * 95cm&nbsp;&nbsp;&nbsp; Chinese Ink, Mineral Pigments, XUAN Paper</p>
+        </div>
+        <img src="/Users/liuyingxin/Desktop/web/web/pain13.png" alt="示例图片3">
+        <div class="description">
+            <p>35cm * 20cm, 25cm * 20cm, 40cm * 25cm,35cm,35cm&nbsp;&nbsp;&nbsp; Chinese Ink, Mineral Pigments, Silk</p>
+        </div>
+        <img src="/Users/liuyingxin/Desktop/web/web/pain14.png" alt="示例图片4">
+        <div class="description">
+            <p>35cm * 33cm, 35cm * 35cm&nbsp;&nbsp;&nbsp; Chinese Ink, Mineral Pigments, Silk</p>
+        </div>
+        <img src="/Users/liuyingxin/Desktop/web/web/painting3.png" alt="示例图片5">
+        <div class="description">
+            <p>35cm&nbsp;&nbsp;&nbsp; Chinese Ink, Mineral Pigments, Silk</p>
+        </div>
+        <img src="/Users/liuyingxin/Desktop/web/web/pain16.png" alt="示例图片6">
+        <div class="description">
+            <p>120cm * 30cm&nbsp;&nbsp;&nbsp; Chinese Ink, Mineral Pigments, Silk</p>
+        </div>
+        <img src="/Users/liuyingxin/Desktop/web/web/paint10.png" alt="示例图片7">
+        <div class="description">
+            <p>90cm* 38cm, 90cm * 50cm &nbsp;&nbsp;&nbsp; Chinese Ink, Mineral Pigments, Silk</p>
+        </div>
+        <video src="/Users/liuyingxin/Desktop/web/web/painting1.mp4" autoplay muted loop></video>
+        <div class="description">
+            <p>Chinese Ink, Mineral Pigments, Silk</p>
+        </div>
+        <img src="/Users/liuyingxin/Desktop/web/web/pain19.png" alt="示例图片8">
+        <div class="description">
+            <p>30cm * 20cm, 20cm * 13cm &nbsp;&nbsp;&nbsp; pencil</p>
+        </div>
+    </div>
+
+    <script>
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top < window.innerHeight &&
+                rect.bottom >= 0
+            );
+        }
+
+        function checkVideos() {
+            const videos = document.querySelectorAll('.container video');
+            videos.forEach(video => {
+                if (isElementInViewport(video)) {
+                    if (!video.classList.contains('playing')) {
+                        video.classList.add('playing');
+                        video.play();
+                    }
+                } else {
+                    if (video.classList.contains('playing')) {
+                        video.classList.remove('playing');
+                        video.pause();
+                    }
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkVideos);
+        window.addEventListener('resize', checkVideos); // 处理窗口大小变化时的情况
+
+        // 初次加载时检查视频
+        checkVideos();
+    </script>
+</body>
+</html>
