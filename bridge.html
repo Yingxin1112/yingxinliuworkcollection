@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridge</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: lightgray;
+              font-family: Arial, sans-serif;
+
+
+        }
+        h1{
+            font-size: 35px;
+            font-weight: bold;
+        }
+        .container {
+            display: flex;
+            align-items: center; /* 垂直居中对齐 */
+            padding: 20px;
+            box-sizing: border-box;
+            flex-wrap: wrap; /* 允许换行 */
+        }
+        .image-container {
+            flex: 0 0 auto; /* 固定图片大小 */
+            margin-right: 20px; /* 图片与文字之间的间距 */
+        }
+        .image-container img {
+            width: 1100px; /* 图片宽度固定为1100px */
+            height: auto; /* 保持图片比例 */
+        }
+        .text-container {
+            flex: 1; /* 文字区域占用剩余空间 */
+            padding-right: 80px; /* 增加文字右边距 */
+            padding-left: 80px; /* 增加文字左边距 */
+            box-sizing: border-box;
+        }
+        .description {
+            font-size: 13px;
+            margin: 0; /* 去掉文字下方的外边距 */
+            padding: 0; /* 去掉文字的内边距 */
+            text-align: left; /* 文字左对齐 */
+            line-height: 1.3;
+        }
+
+        .videos-container {
+            display: flex;
+            justify-content: space-between; /* 水平间距均匀分布 */
+            padding: 0 20px; /* 左右边距为20px */
+            margin-top: 10px; /* 与上方图片的垂直间距 */
+            gap: 5px; /* 视频之间的间距 */
+        }
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 500px; /* 设置统一高度 */
+        }
+        .video-container.left {
+            flex: 3; /* 左边视频容器占3份 */
+        }
+        .video-container.right {
+            flex: 1; /* 右边视频容器占1份 */
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 确保视频充满容器 */
+            outline: none;
+        }
+        .images-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px; /* 左右边距为20px */
+            margin-top: 10px; /* 与上方视频的垂直间距 */
+            gap: 10px; /* 图片之间的间距 */
+        }
+        .image-item {
+            flex: 1; /* 图片容器占用剩余空间 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 1100px; /* 设置图片统一高度 */
+        }
+        .image-item img {
+            width: 100%; /* 图片宽度充满容器 */
+            height: 100%; /* 图片高度充满容器 */
+            object-fit: cover; /* 确保图片充满容器 */
+        }
+        .additional-images-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px; /* 左右边距为20px */
+            margin-top: 10px; /* 与上方图片的垂直间距 */
+            gap: 10px; /* 图片之间的间距 */
+        }
+        .additional-image-item {
+            flex: 1; /* 图片容器占用剩余空间 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 800px; /* 设置图片统一高度 */
+        }
+        .additional-image-item.left {
+            flex: 2.0; /* 左边图片容器占2.5份 */
+        }
+        .additional-image-item.right {
+            flex: 1; /* 右边图片容器占1份 */
+        }
+        .additional-image-item img {
+            width: 100%; /* 图片宽度充满容器 */
+            height: 100%; /* 图片高度充满容器 */
+            object-fit: cover; /* 确保图片充满容器 */
+        }
+
+         .image-video-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px; /* 左右边距为20px */
+            margin-top: 10px; /* 与上方图片的垂直间距 */
+            gap: 10px; /* 图片与视频之间的间距 */
+        }
+        .image-video-item {
+            flex: 1; /* 图片和视频容器各占一半 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 800px; /* 设置统一高度 */
+        }
+        .image-video-item.left {
+            flex: 1; /* 左边图片容器占1份 */
+        }
+        .image-video-item.right {
+            flex: 1.5; /* 右边视频容器占1.5份 */
+        }
+        .image-video-item img, .image-video-item video {
+            width: 100%; /* 图片和视频宽度充满容器 */
+            height: 100%; /* 图片和视频高度充满容器 */
+            object-fit: cover; /* 确保图片和视频充满容器 */
+        }
+
+        .new-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px; /* 左右边距为20px */
+            margin-top: 10px; /* 与上方内容的垂直间距 */
+            gap: 10px; /* 图片与视频之间的间距 */
+        }
+        .new-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 600px; /* 设置统一高度 */
+        }
+        .new-item.left {
+            flex: 1.9; /* 左边图片容器占1.5份 */
+        }
+        .new-item.right {
+            flex: 1; /* 右边视频容器占1份 */
+        }
+        .new-item img, .new-item video {
+            width: 100%; /* 图片和视频宽度充满容器 */
+            height: 100%; /* 图片和视频高度充满容器 */
+            object-fit: cover; /* 确保图片和视频充满容器 */
+        }
+
+         .extra-video {
+            width: 1100px;
+            margin: 0 auto;
+            display: block;
+            margin-right: 20px;
+            margin-top: 10px; /* 与上方内容的垂直间距 */
+        }
+
+        .new-image {
+            display: block;
+            margin-top: 10px; /* 与上方内容的垂直间距 */
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .new-image img {
+            width: 100%;
+            height: auto; /* 保持图片比例 */
+            object-fit: cover; /* 确保图片和视频充满容器 */
+        }
+
+        .new-image-second{
+            display: block;
+            margin-top: 10px; /* 与上方内容的垂直间距 */
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .new-image-second img {
+            width: 100%;
+            height: auto; /* 保持图片比例 */
+            object-fit: cover; /* 确保图片和视频充满容器 */
+        }
+
+       .new-images-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px; /* 左右边距为20px */
+            margin-top: 10px; /* 与上方内容的垂直间距 */
+            gap: 10px; /* 图片之间的间距 */
+        }
+
+       .new-image-item {
+            flex: 1; /* 图片容器占用剩余空间 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px; /* 设置图片统一高度 */
+            gap: 10px; /* 图片与视频之间的间距 */
+        }
+
+       .new-image-item.left {
+            flex: 1; /* 左边图片容器占3份 */
+        }
+
+       .new-image-item.right {
+            flex: 1.5; /* 右边图片容器占1份 */
+        }
+
+       .new-image-item img {
+            width: 100%; /* 图片宽度充满容器 */
+            height: 100%; /* 图片高度充满容器 */
+            object-fit: cover; /* 确保图片充满容器 */
+        }
+
+        .dance-video {
+            width: 1200px;
+            margin: 0 auto;
+            display: block;
+            margin-right: 20px;
+            margin-top: 10px; /* 与上方内容的垂直间距 */
+        }
+
+                /* 新增样式 */
+        .dance-image-container {
+            margin-left: 200px; /* 大屏幕左侧间距20px */
+            margin-right: 0; /* 去掉右边距 */
+            margin-top: 10px;
+        }
+        .dance-image-container img {
+            width: 900px;
+            height: auto;
+        }
+
+                /* 新增样式 */
+        .best-image {
+            margin-top: 10px; /* 与上方内容的垂直间距 */
+            margin-left:20px; /* 自动左边距以推到右边 */
+         }
+
+        .best-image img {
+            width: 1100px; /* 图片宽度为容器的80% */
+            height: auto; /* 保持图片比例 */
+            display: block;
+        }
+        
+        .video-video-row {
+            display: flex;
+            height: 800px; /* 设置统一高度 */
+            gap: 10px; /* 图片之间的间距 */
+            justify-content: space-between;
+            padding: 0 20px; /* 左右边距为20px */
+            margin-top: 10px; /* 与上方内容的垂直间距 */
+        }
+
+        .video-video-row.left {
+            flex: 1; /* 左边图片容器占1.5份 */
+        }
+        .video-video-row.right {
+            flex: 1.8; /* 右边视频容器占1份 */
+        }
+        .video-video-row video {
+            width: 100%; /* 图片和视频宽度充满容器 */
+            height: 100%; /* 图片和视频高度充满容器 */
+            object-fit: cover; /* 确保图片和视频充满容器 */
+        }
+
+
+.video-text-row {
+            display: flex;
+            height: 800px; /* 设置统一高度 */
+            gap: 10px; /* 图片之间的间距 */
+            justify-content: space-between;
+            padding: 0 20px; /* 左右边距为20px */
+            margin-top: 10px; /* 与上方内容的垂直间距 */
+                    margin-bottom: 0px;
+}
+
+.video-text-item.video {
+    flex: 1.6; /* 视频容器占2份 */
+    margin-top: 20px;
+}
+
+.video-text-item.text {
+    flex: 1; /* 文字容器占1份 */
+    color: lightgray;
+    font-size: 15px;
+    margin-top: 250px;
+    margin-left: 40px;
+}
+
+.video-text-item video {
+    width: 100%; /* 视频宽度充满容器 */
+    height: auto; /* 保持视频比例 */
+    object-fit: cover; /* 确保视频充满容器 */
+    margin-bottom: 0px;
+}
+
+        .poster-image {
+            margin-top: -200px; /* 与上方内容的垂直间距 */
+            margin-left:400px; /* 自动左边距以推到右边 */
+            margin-bottom: 0px;
+            width: calc(100% - 400px); 
+
+         }
+
+        .poster-image video {
+            width: 100%; 
+            height: auto; /* 图片高度充满容器 */
+            display: block;
+            margin-top: 0px; /* 与上方内容的垂直间距 */
+        }
+
+        .dance-video-second  {
+            width:calc(100% - 20px);
+            margin: 0 auto;
+            display: block;
+            margin-right: 20px;
+            margin-top: -250px; /* 与上方内容的垂直间距 */}
+
+
+
+
+        
+
+
+
+/* 媒体查询：当屏幕宽度小于768px时 */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column-reverse; /* 在小屏幕上让文字在图片上方 */
+        padding: 0px; /* 边距减少到10px */
+    }
+    .image-container {
+        margin-right: 10px; /* 去掉右边距 */
+        margin-bottom: 10px; /* 图片下方的间距 */
+        margin-left: 10px;
+        margin-top: 20px;
+    }
+    .text-container {
+        padding-right: 10px; /* 去掉右边距 */
+        padding-left: 10px; /* 去掉左边距 */
+        padding-top: 0;
+        font-size: 13px;
+    }
+    .image-container img {
+        width: 100%; /* 图片在小屏幕上宽度调整为100% */
+        height: auto; /* 保持图片比例 */
+    }
+    .videos-container {
+        flex-direction: column; /* 在小屏幕上让视频纵向排列 */
+        padding: 0 10px; /* 左右边距为10px */
+    }
+    .video-container {
+        margin-bottom: 10px; /* 视频下方的间距 */
+        height: auto; /* 高度自动调整 */
+        width: 100%;
+    }
+    video {
+        width: 100%; /* 视频在小屏幕上宽度调整为100% */
+        height: auto; /* 保持视频高度比例 */
+    }
+    .images-row {
+        flex-direction: column; /* 在小屏幕上让图片纵向排列 */
+        padding: 0 10px; /* 左右边距为10px */
+    }
+    .image-item {
+        margin-bottom: 10px; /* 图片下方的间距 */
+        height: auto; /* 高度自动调整 */
+    }
+    .image-item img {
+        width: 100%; /* 图片在小屏幕上宽度调整为100% */
+        height: auto; /* 保持图片高度比例 */
+    }
+    .additional-images-row {
+        flex-direction: column; /* 在小屏幕上让图片纵向排列 */
+        padding: 0 10px; /* 左右边距为10px */
+    }
+    .additional-image-item {
+        margin-bottom: 10px; /* 图片下方的间距 */
+        height: auto; /* 高度自动调整 */
+    }
+    .additional-image-item img {
+        width: 100%; /* 图片在小屏幕上宽度调整为100% */
+        height: auto; /* 保持图片高度比例 */
+    }
+    .image-video-row {
+        flex-direction: column; /* 在小屏幕上让图片和视频纵向排列 */
+        padding: 0 10px; /* 左右边距为10px */
+    }
+    .image-video-item {
+        margin-bottom: 10px; /* 图片和视频下方的间距 */
+        height: auto; /* 高度自动调整 */
+    }
+    .image-video-item img, .image-video-item video {
+        width: 100%; /* 图片和视频在小屏幕上宽度调整为100% */
+        height: auto; /* 保持图片和视频高度比例 */
+    }
+    .new-row {
+        flex-direction: column; /* 在小屏幕上让图片和视频纵向排列 */
+        padding: 0 10px; /* 左右边距为10px */
+    }
+    .new-item {
+        margin-bottom: 10px; /* 图片和视频下方的间距 */
+        height: auto; /* 高度自动调整 */
+    }
+    .new-item img, .new-item video {
+        width: 100%; /* 图片和视频在小屏幕上宽度调整为100% */
+        height: auto; /* 保持图片和视频高度比例 */
+    }
+    .extra-video {
+        width: calc(100% - 20px); /* 设置视频宽度为屏幕宽度减去左右边距 */
+        padding: 0 10px; /* 边距减少到10px */
+        margin-bottom: 10px; /* 图片和视频下方的间距 */
+    }
+    .new-image {
+        margin-bottom: 10px; /* 图片下方的间距 */
+        padding: 10px; /* 边距减少到10px */
+        width: calc(100% - 20px);
+        height: auto;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+    .new-image-second {
+        margin-bottom: 10px; /* 图片下方的间距 */
+        padding: 0 10px; /* 边距减少到10px */
+        width: calc(100% - 20px);
+        height: auto;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    .new-images-row {
+        flex-direction: column; /* 在小屏幕上让图片纵向排列 */
+        padding: 0 10px; /* 左右边距为10px */
+    }
+    .new-image-item {
+        margin-bottom: 10px; /* 图片下方的间距 */
+        height: auto; /* 高度自动调整 */
+    }
+    .new-image-item img {
+        width: 100%; /* 图片在手机屏幕上宽度调整为100%减去左右边距 */
+        height: auto; /* 保持图片高度比例 */
+    }
+    .dance-video {
+        width: calc(100% - 20px); /* 图片在手机屏幕上宽度调整为100%减去左右边距 */
+        padding: 0px;
+        margin-bottom: 10px;
+        height: auto;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    .dance-image-container {
+        margin-bottom: 10px; /* 图片下方的间距 */
+        height: auto; /* 高度自动调整 */
+        padding: 10px;
+         margin-left: 0px; /* 大屏幕左侧间距20px */
+    }
+    .dance-image-container img {
+        width: calc(100% - 20px); /* 图片在手机屏幕上宽度调整为100%减去左右边距 */
+        height: auto;
+    }
+    .best-image {
+        margin-bottom: 10px; /* 图片下方的间距 */
+        height: auto; /* 高度自动调整 */
+        padding: 10px;
+        margin-right: 0px;
+        margin-left: 0px;
+
+    }
+    .best-image img {
+        width: 100%; /* 图片在手机屏幕上宽度调整为100%减去左右边距 */
+        height: auto; /* 保持图片高度比例 */
+
+    }
+    .video-video-row {
+        flex-direction: column; /* 在小屏幕上让图片和视频纵向排列 */
+        padding: 0 10px; /* 左右边距为10px */
+         margin-bottom: 10px; /* 图片和视频下方的间距 */
+    }
+    .video-video-item {
+        margin-bottom: 10px; /* 图片和视频下方的间距 */
+        height: auto; /* 高度自动调整 */
+    }
+    .image-video-item video {
+        width: 100%; /* 图片和视频在小屏幕上宽度调整为100% */
+        height: auto; /* 保持图片和视频高度比例 */
+    }
+
+
+
+    .video-text-row {
+    flex-direction: column; /* 在小屏幕上让视频与文字纵向排列 */
+    padding: 0; /* 左右上下边距为0 */
+    margin-top: 0px; /* 减小图片和视频下方的间距 */
+    margin-left: 0px; /* 视频距离左边屏幕0px */
+    font-size: 13px;
+    line-height: 1.3;
+    margin-bottom: 0px; /* 减小图片和视频下方的间距 */
+}
+
+.video-text-item {
+    width: calc(100% - 20px); /* 图片在手机屏幕上宽度调整为100%减去左右边距 */; 
+    margin-bottom: 0px; /* 减小图片和视频下方的间距 */
+    height: auto; /* 高度自动调整 */
+    margin-left: 10px; /* 视频距离左边屏幕10px */
+    margin-right: 10px; /* 视频距离右边屏幕10px */
+    margin-top: 0px; /* 减小图片与文字上方的间距 */
+}
+
+.video-text-item video {
+    width: calc(100% - 20px); /* 图片在手机屏幕上宽度调整为100%减去左右边距 */; 
+    height: auto; /* 保持视频高度比例 */
+    margin-bottom: 0px; /* 减小图片和视频下方的间距 */
+    margin-top: 200px;
+}
+
+.video-text-item text {
+    width: calc(100% - 20px); /* 图片在手机屏幕上宽度调整为100%减去左右边距 */; 
+    padding-right: 0px; /* 增加文字右边距 */
+    padding-left: 0px; /* 增加文字左边距 */
+    margin-top: 0px; /* 减少文字上方的间距 */
+    margin-bottom: 0px; /* 减少文字下方的间距 */
+    margin-left: 10px;
+    line-height: 1.2;
+}
+
+.video-text-item.text {
+    flex: 1; /* 文字容器占1份 */
+    color: lightgray;
+    font-size: 12px;
+    margin-top: 0px;
+    margin-bottom: 0px; /* 减少文字下方的间距 */
+    margin-left: 10px;
+    line-height: 1.2;
+}
+
+        .poster-image {
+            margin-top: -120px; /* 与上方内容的垂直间距 */
+            margin-left:20px; /* 自动左边距以推到右边 */
+            width: calc(100% - 20px);
+         }
+
+        .poster-image video {
+            width:calc(100% - 20px); /* 图片在手机屏幕上宽度调整为100%减去左右边距 */
+            height: auto; /* 保持图片比例 */
+            display: block;
+        }
+
+            .description {
+            font-size: 12px;
+            margin: 0; /* 去掉文字下方的外边距 */
+            padding: 0; /* 去掉文字的内边距 */
+            text-align: left; /* 文字左对齐 */
+            line-height: 1.2; /* 设置行高 */
+        }
+        h1{
+            font-size: 35px;
+            margin-bottom: 0px;
+            margin-top: 20px;
+        }
+                .dance-video-second  {
+            width:calc(100% - 20px);
+            margin: 0 auto;
+            display: block;
+            margin-right: 20px;
+            margin-top: -200px; /* 与上方内容的垂直间距 */}
+
+
+
+
+
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="/Users/liuyingxin/Desktop/web/web/bridge21.png" alt="描述图片">
+        </div>
+        <div class="text-container">
+            <div class="description">
+                <h1>BRIDGE MUSEUM</h1>
+                <p>Bridge Museum is an innovative museum that bridges the gap between reality and the virtual world, expanding the entire city of New York into its exhibition space through VR technology. Visitors can explore various locations throughout the city, scanning codes to experience the exhibits, interact with them, and watch animations. These thoughtfully redesigned exhibits are showcased at specific sites, telling unique, regionally-focused stories that break the traditional boundaries and definitions of a museum. This approach provides visitors with new inspiration, encouraging them to delve deeper into the context of the exhibits and igniting their passion for telling new stories. The museum's design and brand identity break away from convention, employing diverse methods of connection that not only strengthen the relationship between the exhibits and the visitors but also enhance the emotional bond between the visitors and the specific locales. This presents a fresh narrative perspective where everyone becomes a unique New Yorker. Bridge Museum is more than just a platform for display—it’s a stage for co-creating stories between the audiences and the city.</p>
+            </div>
+        </div>
+    </div>
+    <div class="videos-container">
+        <div class="video-container left">
+            <video id="video1" src="/Users/liuyingxin/Desktop/web/web/logo1.mp4"autoplay muted loop></video>
+        </div>
+        <div class="video-container right">
+            <video id="video2" src="/Users/liuyingxin/Desktop/web/web/logo2.mp4" autoplay muted loop></video>
+        </div>
+    </div>
+    <div class="images-row">
+        <div class="image-item">
+            <img src="/Users/liuyingxin/Desktop/web/web/bridge2.jpg" alt="图片1">
+        </div>
+        <div class="image-item">
+            <img src="/Users/liuyingxin/Desktop/web/web/bridge3.JPG" alt="图片2">
+        </div>
+    </div>
+    <div class="additional-images-row">
+        <div class="additional-image-item left">
+            <img src="/Users/liuyingxin/Desktop/web/web/bridge4.JPG" alt="图片3">
+        </div>
+        <div class="additional-image-item right">
+            <img src="/Users/liuyingxin/Desktop/web/web/bridge5.jpg" alt="图片4">
+        </div>
+    </div>
+
+        <div class="image-video-row">
+        <div class="image-video-item left">
+            <img src="/Users/liuyingxin/Desktop/web/web/bridge6.jpg" alt="图片5">
+        </div>
+        <div class="image-video-item right">
+            <video src="/Users/liuyingxin/Desktop/web/web/bridge7.mp4" autoplay muted loop></video>
+        </div>
+    </div>
+        <div class="new-row">
+        <div class="new-item left">
+            <video src="/Users/liuyingxin/Desktop/web/web/bridge8.mp4" autoplay muted loop></video>
+        </div>
+        <div class="new-item right">
+            <img src="/Users/liuyingxin/Desktop/web/web/bridge9.jpg" alt="New Image">
+        </div>
+    </div>
+
+<div class="new-images-row">
+    <div class="new-image-item left">
+        <img src="/Users/liuyingxin/Desktop/web/web/bridge11.png" alt="图片6">
+    </div>
+    <div class="new-image-item right">
+        <img src="/Users/liuyingxin/Desktop/web/web/bridge12.jpg" alt="图片7">
+    </div>
+</div>
+        <div class="extra-video">
+        <video src="/Users/liuyingxin/Desktop/web/web/bridge13.mp4"  autoplay muted loop></video>
+    </div>
+
+    <div class="new-image">
+    <img src="/Users/liuyingxin/Desktop/web/web/bridge14.png" alt="图片8">
+</div>
+
+        <div class="dance-video">
+        <video src="/Users/liuyingxin/Desktop/web/web/bridge15.mp4" autoplay muted loop></video>
+    </div>
+
+        <div class="dance-image-container">
+        <img src="/Users/liuyingxin/Desktop/web/web/bridge1.jpg" alt="Dance Image">
+    </div>
+
+        <div class="new-image-second">
+    <img src="/Users/liuyingxin/Desktop/web/web/bridge16.png" alt="图片9">
+</div>
+
+    <div class="best-image">
+        <img src="/Users/liuyingxin/Desktop/web/web/bridge17.png" alt="Best Image">
+    </div>
+
+        
+        <div class="video-video-row">
+        <div class="video-video-item left">
+            <video src="/Users/liuyingxin/Desktop/web/web/bridge18.mp4" autoplay muted loop></video>
+        </div>
+        <div class="video-video-item right">
+            <video src="/Users/liuyingxin/Desktop/web/web/bridge19.mp4" autoplay muted loop></video>
+        </div>
+    </div>
+
+    <div class="video-text-row">
+    <div class="video-text-item video">
+        <video src="/Users/liuyingxin/Desktop/web/web/bridge20.mp4" autoplay muted loop></video>
+    </div>
+    <div class="video-text-item text">
+        <p>The museum's collection function further deepens the visitor experience. Every moment of interaction between visitors and exhibits is recorded in real-time, creating a unique personal "memory ticket." These tickets can be saved after the visit and viewed in 3D using Apple Vision Pro, allowing visitors to relive the interactive scenes. This approach not only reinforces the initial points of memory but also enhances the emotional connection with the exhibits, making each visit a profound and unforgettable journey.This version aims to clearly convey the museum's innovation while emphasizing its integration with modern technology and the enhancement of emotional experiences.</p>
+    </div>
+</div>
+
+        <div class="dance-video-second">
+        <video src="/Users/liuyingxin/Desktop/web/web/bridge9.mp4" autoplay muted loop></video>
+    </div>
+    <script>
+    
+    
+
+        const observer = new IntersectionObserver(handleVideoVisibility, { threshold: 0.5 });
+        document.querySelectorAll('video').forEach(video => {
+            observer.observe(video);
+            video.controls = false; // 隐藏控制条
+        });
+
+        // 页面加载时隐藏控制条
+        window.addEventListener('load', () => {
+            document.querySelectorAll('video').forEach(video => {
+                video.controls = false; // 隐藏控制条
+            });
+        });
+
+
+
+    </script>
+</body>
+</html>
