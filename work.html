@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Links</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+              font-family: Arial, sans-serif;
+
+
+
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            top: 10px;
+            margin: 0;
+            align-items: center;
+        }
+        .image-row {
+            display: flex;
+            gap: 5px;
+            margin-top: 0px;
+        }
+        .first-row {
+            width: calc(100% - 20px);
+            margin-left: 10px;
+        }
+        .second-row {
+            width: 1200px;
+            margin-left: 500px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .third-row {
+            width: 1500px;
+            margin-right: 100px;
+            display: flex;
+            justify-content: flex-start;
+        }
+        .fourth-row {
+            width: 1200px;
+            margin-left: 500px;
+            display: flex;
+            justify-content: flex-end;
+        }
+.image-wrapper, .video-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.6s ease, filter 0.6s ease; /* 调整整体的过渡时间 */
+}
+
+.image-wrapper img, .video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(0px); /* 初始状态为清晰 */
+    transition: transform 0.3s ease, filter 0.6s ease; /* 过渡效果 */
+}
+
+.image-wrapper:hover img, .video-wrapper:hover video {
+    animation: blurAndClear 0.6s ease-in-out; /* 执行模糊到清晰的动画 */
+}
+
+@keyframes blurAndClear {
+    0% {
+        filter: blur(0px); /* 初始清晰 */
+    }
+    50% {
+        filter: blur(5px); /* 中间模糊 */
+    }
+    100% {
+        filter: blur(0px); /* 最终清晰 */
+    }
+}
+
+
+
+        .video-wrapper video {
+            display: block;
+        }
+        .caption {
+            margin-top: 10px;
+            color: lightgray;
+            text-align: left;
+            width: 100%;
+            padding: 0 0px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        .caption .title {
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .caption .description {
+            font-size: 10px;
+            font-weight: normal;
+        }
+        .first-row .left {
+            flex: 1;
+        }
+        .first-row .right {
+            flex: 1.5;
+        }
+        .second-row .left {
+            flex: 2.1;
+        }
+        .second-row .right {
+            flex: 1;
+        }
+        .third-row .left {
+            flex: 2.4;
+        }
+        .third-row .right {
+            flex: 1;
+        }
+        .fourth-row .left {
+            flex: 1;
+        }
+        .fourth-row .right {
+            flex: 2.5;
+        }
+        .fifth-row {
+            width: calc(100% - 800px);
+            margin-right: 750px;
+            display: flex;
+            justify-content: flex-start;
+        }
+        .fifth-row .video-wrapper {
+            width: 65%;
+            margin-left: 10px;
+        }
+        a {
+            text-decoration-color: black;
+        }
+        @media (max-width: 768px) {
+            body {
+                overflow: auto;
+                font-size: 11px;
+            }
+            .container {
+                padding: 0 10px;
+            }
+            .image-row {
+                flex-direction: column;
+                width: 100%;
+                max-width: none;
+            }
+            .image-wrapper, .video-wrapper {
+                width: 100%;
+                margin: 0;
+                align-items: center;
+            }
+            .image-wrapper img, .video-wrapper video {
+                width: 100%;
+                height: auto;
+            }
+          .caption {
+    text-align: left;
+}
+
+.caption .title {
+    font-size: 35px; /* Adjust title font size for mobile */
+    display: block; /* Ensure title is on its own line */
+    line-height: 1.2; /* Optional: Adjust line height for spacing */
+}
+
+.caption .description {
+    font-size: 12px; /* Adjust description font size for mobile */
+    display: block; /* Ensure description is on its own line */
+    line-height: 1.2; /* Optional: Adjust line height for spacing */
+}
+            .first-row {
+                width: calc(100% - 10px);
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .second-row {
+                width: calc(100% - 10px);
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .third-row {
+                width: calc(100% - 10px);
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .fourth-row {
+                width: calc(100% - 10px);
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .fifth-row {
+                width: calc(100% - 10px);
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .fifth-row .video-wrapper {
+                width: 100%;
+                margin-left: 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-row first-row">
+            <a class="image-wrapper left" href="bridge.html">
+                <img src="/Users/liuyingxin/Desktop/web/web/bridgecover.PNG" alt="Image 1">
+                <div class="caption"><span class="title">BRIDGE MUSEUM</span> <span class="description">-&nbsp#Branding &nbsp#3D  &nbsp#Animation  &nbsp#Exhibition  &nbsp#VR &nbsp#Modern Cultural Narrative</span></div>
+            </a>
+            <a class="image-wrapper right" href="men.html">
+                <img src="/Users/liuyingxin/Desktop/web/web/mencover.png" alt="Image 2">
+                <div class="caption"><span class="title">MOO</span> <span class="description">-&nbsp#Website &nbsp#Psychological Tool  &nbsp#Branding &nbsp#UX/UI</span></div>
+            </a>
+        </div>
+        <div class="image-row second-row">
+            <a class="image-wrapper left" href="between2.html">
+                <img src="/Users/liuyingxin/Desktop/web/web/between1.png" alt="Image 3">
+                <div class="caption"><span class="title">HERE AND THERE</span> <span class="description">-&nbsp#Website &nbsp#Book  &nbsp#Exhibition   &nbsp#Behavioral Design and Data Interpretation</span></div>
+            </a>
+            <a class="image-wrapper right" href="news.html">
+                <img src="/Users/liuyingxin/Desktop/web/web/news1.jpg" alt="Image 4">
+                <div class="caption"><span class="title">TENET</span> <span class="description">-&nbsp#Typography and Narrative Structure</span></div>
+            </a>
+        </div>
+        <div class="image-row third-row">
+            <a class="image-wrapper left" href="ecollection.html">
+                <img src="/Users/liuyingxin/Desktop/web/web/cocover.png" alt="Image 5">
+                <div class="caption"><span class="title">GRAPHIC ARCHIVE</span> <span class="description">-&nbsp#Book &nbsp#Pamphlet  &nbsp#Print  &nbsp#Poster  &nbsp#Illustration </span></div>
+            </a>
+            <a class="image-wrapper right" href="thinking.html">
+                <img src="/Users/liuyingxin/Desktop/web/web/here2.png" alt="Image 6">
+                <div class="caption"><span class="title">MAKING/THINKING</span> <span class="description">-&nbsp#Book &nbsp#Behavioral </span></div>
+            </a>
+        </div>
+        <div class="image-row fourth-row">
+            <a class="image-wrapper left" href="painting.html">
+                <img src="/Users/liuyingxin/Desktop/web/web/paintingcover.png" alt="Image 7">
+                <div class="caption"><span class="title">ART COLLECTION</span> <span class="description">-&nbsp#Traditional/Modern</span></div>
+            </a>
+            <a class="video-wrapper right" href="video.html">
+                <video class="video" src="/Users/liuyingxin/Desktop/web/web/video2.mp4" muted loop></video>
+                <div class="caption"><span class="title">VIDEO REEL</span> <span class="description">-&nbsp#Video</span></div>
+            </a>
+        </div>
+
+        <div class="image-row fifth-row">
+            <a class="video-wrapper" href="code.html">
+                <video src="/Users/liuyingxin/Desktop/web/web/code1.mp4" autoplay muted loop></video>
+                <div class="caption"><span class="title">CREATIVE CODING COLLECTION</span> <span class="description">-&nbsp#Website &nbsp#Interactive &nbsp#Game   &nbsp#Behavioral Design and Data</span></div>
+            </a>
+        </div>
+    </div>
+    <script>
+        function handleScroll() {
+            const videos = document.querySelectorAll('.video');
+            const windowHeight = window.innerHeight;
+
+            videos.forEach(video => {
+                const rect = video.getBoundingClientRect();
+                if (rect.top < windowHeight && rect.bottom > 0) {
+                    if (video.paused) {
+                        video.play();
+                    }
+                } else {
+                    if (!video.paused) {
+                        video.pause();
+                    }
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', handleScroll);
+    </script>
+</body>
+</html>

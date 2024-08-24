@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @font-face {
+            font-family: 'HelveticaNeueCondensedBlack';
+            src: url('/Users/liuyingxin/Desktop/web/web/fonts/HelveticaNeueCondensedBlack.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'HelveticaNeueCondensedBlack', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            box-sizing: border-box;
+            background-color: black;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            z-index: 1001;
+            box-shadow: none;
+            font-weight: bold;
+            font-size: 6vw;
+            height: 12vh;
+            transition: height 0.3s, font-size 0.3s;
+        }
+
+        section {
+            margin-top: 4vh;
+            padding: 0;
+            font-weight: bold;
+            font-size: 6vw;
+            height: calc(100vh - 5vh);
+            overflow: hidden;
+            position: relative;
+            transition: height 0.3s;
+            background-color: #black;
+            margin-bottom: 4vh;
+        }
+
+        nav {
+            height: 100%;
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: calc(100% - 10px);
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 1vh 1.5vw;
+            transition: color 0.3s ease;
+            min-height: 3vh;
+            font-size: 6vw;
+        }
+
+        nav ul li a:hover, nav ul li a:active {
+            background: linear-gradient(270deg, #ff6a00, #ee0979, #7b4397, #00c6ff);
+            background-size: 800% 800%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradient 3s ease infinite;
+        }
+
+        nav ul li a.small {
+            font-size: 3vh !important;
+            color: white;
+        }
+
+        header.small {
+            height: 5vh;
+            font-size: 3vw;
+            color: white;
+            background-color: black;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 3.5vh;
+            left: 0;
+            width: 100%;
+            height: 9vh;
+            background-color: #ffff;
+            z-index: 1;
+        }
+
+        .contact-text.hidden {
+    display: none;
+}
+
+        .iframe-container1, .iframe-container2 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .iframe-container1 {
+            z-index: 998;
+            top: -50px;
+        }
+
+        .iframe-container2 {
+            z-index: 999;
+            display: none;
+        }
+
+        iframe#iframe1 {
+            width: 100%;
+            height: 100%;
+            border: none;
+            position: absolute;
+            top: 7vh;
+            left: 0;
+            z-index: 998;
+        }
+
+        iframe#iframe2 {
+            width: 100%;
+            height: 100%;
+            border: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            display: none;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #000000;
+            text-align: center;
+            padding: 1vh 0;
+            font-size: 1vw;
+            z-index: 1000;
+            color: white;
+        }
+
+        .top-left-text {
+            position: fixed;
+            top: 24vh;
+            left: 9vw;
+            font-size: 2vw;
+            font-weight: normal;
+            width: calc(100% - 300px);
+            z-index: 1002;
+            font-family: Butler-light, sans-serif;
+            padding: 10px;
+            border-radius: 5px;
+            color: black;
+            transition: opacity 0.3s ease;
+            text-align: center;
+            background-color: 255,255,255,0.5;
+        }
+
+        .top-left-text.hidden {
+            opacity: 0;
+            pointer-events: none; /* Prevents clicks when hidden */
+        }
+
+               /* 新增的文字样式 */
+        .contact-text {
+            display: none; /* 初始隐藏 */
+            position: fixed;
+            top: 78vh; /* 调整到你希望的位置 */
+            left: 30vw; /* 调整到你希望的位置 */
+            right: 30vw; /* 调整到你希望的位置 */
+            font-size: 2vw; /* 根据需要调整字体大小 */
+            color: white;
+            padding: 0px;
+            border-radius: 5px;
+            z-index: 1003; /* 确保在其他内容之上 */
+            font-family: Butler-light, sans-serif;
+            margin: 0;
+            text-align: center;
+            background-color: black;
+            mix-blend-mode: difference;
+                        line-height: 1;
+        }
+
+        .contact-text p {
+    margin-top: 10px;    /* 段落之间的上方间距 */
+    margin-bottom: 10px; /* 段落之间的下方间距 */
+
+}
+
+        @media (max-width: 768px) {
+            header {
+                font-size: 9vw;
+                height: 10vh;
+            }
+
+            nav ul li a {
+                font-size:11vw;
+            }
+
+            header.small {
+                height: 4vh;
+                font-size: 3vw;
+            }
+
+            section {
+                margin-top: 4vh;
+            }
+
+       footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #000000;
+            text-align: center;
+            padding: 1vh 0;
+            font-size: 2vw;
+            z-index: 1000;
+            color: white;
+        }
+
+            .top-left-text {
+                position: fixed;
+                top: 10vh;
+                left: 1vw;
+                color: black;
+                font-size: 4vw;
+                font-weight: normal;
+                width: calc(100% - 20px);
+                z-index: 1002;
+                font-weight: normal;
+                font-family: Butler-light, sans-serif;
+                text-align: left;
+            }
+
+                  .iframe-container1 {
+            z-index: 998;
+            top: -68px;
+            width: 100%;
+        }
+
+                    .contact-text {
+            display: none; /* 初始隐藏 */
+            position: fixed;
+            top: 83vh; /* 调整到你希望的位置 */
+            left: 2vw; /* 调整到你希望的位置 */
+            right: 2vw;
+            font-size: 4vw; /* 根据需要调整字体大小 */
+            color: white;
+            padding: 0px;
+            border-radius: 5px;
+            z-index: 1003; /* 确保在其他内容之上 */
+            font-family: Butler-light, sans-serif;
+            background-color: black;
+            mix-blend-mode: difference;
+            text-align: center;
+            line-height: 1;
+        }
+.contact-text p {
+    bottom: 1px;
+}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="work"><a href="#portfolio" onclick="showWorkPage(); document.querySelector('.top-left-text').classList.add('hidden');">WORK</a></li>
+                <li class="contact"><a href="#contact" onclick="toggleContactText()； document.querySelector('.contact-text').classList.add('hidden');">CONTACT ME</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+     <!-- 新增的文字 -->
+    <div class="contact-text"><p>Email: yliu91@pratt.edu</p>
+        <p>Instagram: yingxinliu1112</p></div>
+  <section>
+        <div class="overlay"></div>
+        <div class="iframe-container1">
+            <iframe id="iframe1" src="https://editor.p5js.org/yliu91/full/C-qemmRMW"></iframe>
+        </div>
+        <div class="iframe-container2">
+            <iframe id="iframe2" src="work.html"></iframe>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2024 Yingxin Website. All rights reserved.
+    </footer>
+
+   <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var navLinks = document.querySelectorAll('nav ul li a');
+            
+            navLinks.forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    handleNavigation(event);
+                });
+            });
+        });
+
+        function handleNavigation(event) {
+            var link = event.target;
+            var href = link.getAttribute('href');
+
+            if (href === '#portfolio') {
+                showWorkPage();
+            } else if (href === '#contact') {
+                toggleContactText();
+            }
+            
+            event.preventDefault();
+        }
+
+        function showWorkPage() {
+            var header = document.querySelector('header');
+            header.classList.add('small');
+
+            var navLinks = document.querySelectorAll('nav ul li a');
+            navLinks.forEach(function(link) {
+                link.classList.add('small');
+            });
+
+            var iframeContainer2 = document.querySelector('.iframe-container2');
+            iframeContainer2.style.display = 'block';
+
+            var iframe2 = document.getElementById('iframe2');
+            iframe2.style.display = 'block';
+
+            var iframe1 = document.getElementById('iframe1');
+            iframe1.style.display = 'none';
+
+            var overlay = document.querySelector('.overlay');
+            overlay.style.display = 'none';
+
+            document.querySelector('.top-left-text').classList.add('hidden'); // Hide top-left text
+                var contactText = document.querySelector('.contact-text');
+    contactText.classList.toggle('hidden');
+        }
+
+function toggleContactText() {
+    var contactText = document.querySelector('.contact-text');
+    console.log('Current display:', contactText.style.display);
+    if (contactText.style.display === 'none' || contactText.style.display === '') {
+        contactText.style.display = 'block';
+        console.log('Displaying contact text');
+    } else {
+        contactText.style.display = 'none';
+        console.log('Hiding contact text');
+    }
+
+}
+
+
+    </script>
+</body>
+</html>
