@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            height: 100vh;
+        }
+
+        .container {
+            position: relative;
+            width: 60%;
+            margin: 0 auto;
+            height: auto;
+        }
+
+        .video, .additional-video {
+            max-width: 100%; /* Adjust to control video size */
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .text-container {
+            margin-top: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .additional-video-container {
+            margin: 30px auto 0; /* 30px margin-top */
+            max-width: 80%; /* Adjust to control video size */
+            width: auto; /* Ensure it scales properly */
+        }
+               .another-video-container {
+            width: calc(100% - 500px);
+            margin-left: 250px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        .another-video {
+            max-width: 100%; /* Adjust to control video size */
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            .text-container h1 {
+                font-size: 25px;
+            }
+
+            .text-container p {
+                font-size: 14px;
+            }
+            .container {
+            position: relative;
+            width: calc(100% - 20px);
+            margin: 0 auto;
+            height: auto;
+        }
+
+
+        .additional-video-container {
+            margin: 30px auto 0; /* 30px margin-top */
+            max-width: calc(100% - 20px); /* Adjust to control video size */
+            width: auto; /* Ensure it scales properly */
+            padding: 0;
+        }
+
+                       .another-video-container {
+            margin: 30px auto 0; /* 30px margin-top */
+            max-width: calc(100% - 20px); /* Adjust to control video size */
+            width: auto; /* Ensure it scales properly */
+            padding: 0;
+        }
+        .another-video {
+            max-width: 100%; /* Adjust to control video size */
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <video class="video" autoplay muted loop>
+            <source src="/Users/liuyingxin/Desktop/web/web/video2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="text-container">
+            <h1>IN-BETWEEN</h1>
+        </div>
+
+        <div class="another-video-container ">
+            <video class="another-video" autoplay muted loop>
+                <source src="/Users/liuyingxin/Desktop/web/web/v.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="text-container">
+            <h1>FUTURE IS NOW</h1>
+        </div>
+
+        <div class="additional-video-container">
+            <video class="additional-video" autoplay muted loop>
+                <source src="/Users/liuyingxin/Desktop/web/web/type.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="text-container">
+            <h1>TEXTUAL DIMENSIONS</h1>
+        </div>
+    </div>
+</body>
+</html>
