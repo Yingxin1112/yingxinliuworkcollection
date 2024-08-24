@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黑色背景网页</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: lightgray;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row; /* 默认方向是水平的 */
+            align-items: left;
+            margin: 0px; /* 左右边距 10px */
+            gap: 60px; /* 图片和文字之间的间距 */
+            width: calc(100% - 200px); /* 总宽度减去左右边距 */
+            line-height: auto;
+            margin-left: 100px;
+            margin-top: 10px;
+            padding: 0;
+        }
+
+        .image {
+            flex: 1.5;
+            width: 1100px;
+            height: auto;
+            margin: 0px; /* 左右边距 10px */
+            padding: 0;
+        }
+
+        .text-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .section-title {
+            color: lightgray;
+            font-size: 44px;
+            font-weight: bold;
+            margin: 0 0 20px 0;
+            line-height: 1.2;
+            padding: 0;
+        }
+
+        .description {
+            font-size: 13px;
+            color: lightgray;
+            line-height: 1.3;
+            margin-top: 0px;
+        }
+
+        .second-image-container {
+            text-align: center;
+            margin-top: 10px;
+            width: calc(100% - 200px); /* 总宽度减去左右边距 */
+            margin-right: 100px;
+            margin-left: 100px;
+        }
+
+     .description-second {
+        font-size: 13px;
+        text-align: left;
+        width:calc(100% - 200px); /* 总宽度减去左右边距 */
+        margin-top: 5px; /* 描述上方的间距 */
+        margin-bottom: 0px; /* 描述下方的间距 */
+        margin-left: 100px;
+    }
+
+
+        .second-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .media-container {
+            display: flex;
+            align-items: stretch; /* 确保图片和视频高度相同 */
+            justify-content: space-between;
+            margin: 10px; /* 左右边距 10px */
+            width: calc(100% - 200px); /* 总宽度减去左右边距 */
+            margin-right: 100px;
+            margin-left: 100px;
+        }
+
+        .media-image, .media-video {
+            height: 680px;
+            object-fit: cover; /* 确保图片和视频填满容器 */
+        }
+
+        .media-image {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .media-video {
+            flex: 2.5;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            background-color: black;
+            outline: none;
+        }
+
+        .video-container {
+            text-align: center;
+            margin: 10px; /* 左右边距 10px */
+            width: calc(100% - 200px); /* 总宽度减去左右边距 */
+            margin-right: 100px;
+            margin-left: 100px;
+        }
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column-reverse; /* 在小屏幕上让文字在图片上方 */
+        align-items: center;
+        width: calc(100% - 20px); /* 总宽度减去左右边距 */
+        margin-left: 10px;
+        margin-top: 10px;
+        padding: 0;
+        gap: 0;
+    }
+
+
+    .section-title {
+        font-size: 30px;
+        text-align: left;
+        width: 100%; /* 总宽度减去左右边距 */
+        margin-top: 20px;
+        margin-left: 0px;
+        margin-bottom: 5px; /* 标题下方的间距 */
+    }
+
+    .description {
+        font-size: 12px;
+        text-align: left;
+        width: 100%; /* 总宽度减去左右边距 */
+        margin-top: 10px; /* 描述上方的间距 */
+        margin-bottom: 20px; /* 描述下方的间距 */
+        margin-left: 0px;
+        line-height: 1.2;
+    }
+
+    .second-image-container {
+            text-align: center;
+            margin-top: 10px;
+            width: calc(100% - 20px); /* 总宽度减去左右边距 */
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+   .second-image {
+            width: 100%;
+            height: auto;
+        }
+
+
+    .image {
+        width: 100%; /* 总宽度减去左右边距 */
+        flex: 1;
+    }
+
+    .media-container {
+        flex-direction: column;
+        align-items: center;
+        width: calc(100% - 20px);; /* 总宽度减去左右边距 */
+        margin: 0 10px; /* 左右边距 10px */
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+    .media-image, .media-video {
+        width: 100%;; /* 总宽度减去左右边距 */
+        margin-bottom: 10px;
+    }
+
+    .media-image {
+        margin-right: 0;
+    }
+
+    .media-video {
+        margin-top: 5px;
+    }
+
+    .video-container {
+        margin: 10px; /* 左右边距 10px */
+        margin-top: 5px;
+        margin-bottom: 15px;
+        margin-left: 10px;
+        width: calc(100% - 20px); /* 总宽度减去左右边距 */
+    }
+
+    .description-second {
+        font-size: 12px;
+        text-align: left;
+        width:calc(100% - 20px); /* 总宽度减去左右边距 */
+        margin-top: 20px; /* 描述上方的间距 */
+        margin-bottom: 20px; /* 描述下方的间距 */
+        margin-left: 10px;
+        line-height: 1.2;
+    }
+
+
+    h2, p {
+        margin: 0; /* 确保没有额外的边距 */
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="/Users/liuyingxin/Desktop/web/web/men2.PNG" alt="描述图片" class="image">
+        <div class="text-container">
+            <div class="section-title">
+                <h2>MOO</h2>
+            </div>
+            <div class="description">
+                <p>MOO (Mind over Otter) is a digital product designed to help users address psychological issues by guiding them in self-expression, which in turn influences their thoughts and behaviors. The app integrates psychological suggestion and behavioral principles into every aspect of the user experience, using a simple, efficient, and clear process. Users can quickly engage in self-reflection and expression according to the guidance provided, and the content they write can serve as valuable input for therapists during counseling sessions, facilitating real-time intervention and guidance. MOO aims to provide users with a self-help tool when they cannot access immediate assistance from a psychologist, enabling them to better understand themselves and enhance their ability to address psychological challenges independently.</p>
+            </div>
+        </div>
+    </div>
+    <div class="second-image-container">
+        <img src="/Users/liuyingxin/Desktop/web/web/research1.jpg" alt="第二张描述图片" class="second-image">
+    </div>
+    <div class="second-image-container">
+        <img src="/Users/liuyingxin/Desktop/web/web/research2.jpg" alt="第二张描述图片" class="second-image">
+    </div>
+    <div class="second-image-container">
+        <img src="/Users/liuyingxin/Desktop/web/web/research3.jpg" alt="第二张描述图片" class="second-image">
+    </div>
+    <div class="second-image-container">
+        <img src="/Users/liuyingxin/Desktop/web/web/research4.jpg" alt="第二张描述图片" class="second-image">
+    </div>
+    <div class="second-image-container">
+        <img src="/Users/liuyingxin/Desktop/web/web/research5.jpg" alt="第二张描述图片" class="second-image">
+    </div>
+
+    <!-- 图片和视频的容器 -->
+    <div class="media-container">
+        <img src="/Users/liuyingxin/Desktop/web/web/men3.PNG" alt="左侧图片" class="media-image">
+        <video class="media-video" autoplay muted loop>
+            <source src="/Users/liuyingxin/Desktop/web/web/men4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+                <div class="description-second">
+                <p>The logo design is simple and direct, with rounded corners that provide a soothing and calming effect. The solid body conveys a sense of reliability, while the varying sizes of the letter “O” soften the overall heaviness and add a touch of playfulness. The gradually enlarging “O,” inspired by volume icons, is intended to encourage users to express themselves and speak out.The Moo otter character is derived from a variant of the letters “MOO,” designed to be simple, clear, and soothing without interfering with the psychological intervention process. The animated prompts help set the mood and alleviate the monotony of the writing process. The animation shows the transition from letters to the otter character, conveying the concept of transformation and how changing thoughts can better support oneself.The fonts used are Youngster and Arial, chosen to ensure clear communication while maintaining a cute and healing aesthetic.</p>
+            </div>
+
+    <!-- 新的视频容器 -->
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="/Users/liuyingxin/Desktop/web/web/part1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- 新的视频容器 -->
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="/Users/liuyingxin/Desktop/web/web/part2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- 新的视频容器 -->
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="/Users/liuyingxin/Desktop/web/web/part3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- 新的视频容器 -->
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="/Users/liuyingxin/Desktop/web/web/part4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- 新的视频容器 -->
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="/Users/liuyingxin/Desktop/web/web/part5.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- 新的视频容器 -->
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="/Users/liuyingxin/Desktop/web/web/part6.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- 新的视频容器 -->
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="/Users/liuyingxin/Desktop/web/web/part8.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- 新的视频容器 -->
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="/Users/liuyingxin/Desktop/web/web/part9.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- 新的视频容器 -->
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="/Users/liuyingxin/Desktop/web/web/part10.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+</body>
+</html>
