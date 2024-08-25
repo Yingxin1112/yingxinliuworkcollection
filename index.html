@@ -208,7 +208,7 @@
             color: white;
             padding: 0px;
             border-radius: 5px;
-            z-index: 1000; /* 确保在其他内容之上 */
+            z-index: 1003; /* 确保在其他内容之上 */
             font-family: 'Butler-light', sans-serif;
             margin: 0;
             text-align: center;
@@ -273,14 +273,10 @@
             }
 
                   .iframe-container1 {
-            z-index: 999;
+            z-index: 998;
             top: -70px;
             width: 100%;
         }
-            .iframe-container1.hidden {
-    pointer-events: none;
-}
-
 
             .contact-text {
             display: none; /* 初始隐藏 */
@@ -292,7 +288,7 @@
             color: white;
             padding: 0px;
             border-radius: 5px;
-            z-index: 1001; /* 确保在其他内容之上 */
+            z-index: 1003; /* 确保在其他内容之上 */
             font-family: 'Butler-light', sans-serif;
             background-color: black;
             mix-blend-mode: difference;
@@ -357,7 +353,7 @@
             event.preventDefault();
         }
 
-     function showWorkPage() {
+        function showWorkPage() {
             var header = document.querySelector('header');
             header.classList.add('small');
 
@@ -393,10 +389,6 @@ function toggleContactText() {
         contactText.style.display = 'none';
         console.log('Hiding contact text');
     }
-
-}
-
-
 
 }
 
