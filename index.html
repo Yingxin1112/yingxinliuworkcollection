@@ -277,6 +277,10 @@
             top: -70px;
             width: 100%;
         }
+            .iframe-container1.hidden {
+    pointer-events: none;
+}
+
 
             .contact-text {
             display: none; /* 初始隐藏 */
@@ -353,42 +357,39 @@
             event.preventDefault();
         }
 
-        function showWorkPage() {
-            var header = document.querySelector('header');
-            header.classList.add('small');
+       function showWorkPage() {
+    var iframeContainer1 = document.querySelector('.iframe-container1');
+    var iframeContainer2 = document.querySelector('.iframe-container2');
+    iframeContainer1.classList.add('hidden');
+    iframeContainer2.style.display = 'block';
 
-            var navLinks = document.querySelectorAll('nav ul li a');
-            navLinks.forEach(function(link) {
-                link.classList.add('small');
-            });
+    var iframe2 = document.getElementById('iframe2');
+    iframe2.style.display = 'block';
 
-            var iframeContainer2 = document.querySelector('.iframe-container2');
-            iframeContainer2.style.display = 'block';
+    var iframe1 = document.getElementById('iframe1');
+    iframe1.style.display = 'none';
 
-            var iframe2 = document.getElementById('iframe2');
-            iframe2.style.display = 'block';
+    var overlay = document.querySelector('.overlay');
+    overlay.style.display = 'none';
 
-            var iframe1 = document.getElementById('iframe1');
-            iframe1.style.display = 'none';
-
-            var overlay = document.querySelector('.overlay');
-            overlay.style.display = 'none';
-
-            document.querySelector('.top-left-text').classList.add('hidden'); // Hide top-left text
-                var contactText = document.querySelector('.contact-text');
+    document.querySelector('.top-left-text').classList.add('hidden'); 
+    var contactText = document.querySelector('.contact-text');
     contactText.classList.toggle('hidden');
-        }
+}
 
 function toggleContactText() {
     var contactText = document.querySelector('.contact-text');
-    console.log('Current display:', contactText.style.display);
+    var iframeContainer1 = document.querySelector('.iframe-container1');
+
     if (contactText.style.display === 'none' || contactText.style.display === '') {
         contactText.style.display = 'block';
-        console.log('Displaying contact text');
+        iframeContainer1.classList.remove('hidden'); // Enable pointer events
     } else {
         contactText.style.display = 'none';
-        console.log('Hiding contact text');
+        iframeContainer1.classList.add('hidden'); // Disable pointer events
     }
+}
+
 
 }
 
