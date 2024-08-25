@@ -357,38 +357,45 @@
             event.preventDefault();
         }
 
-       function showWorkPage() {
-    var iframeContainer1 = document.querySelector('.iframe-container1');
-    var iframeContainer2 = document.querySelector('.iframe-container2');
-    iframeContainer1.classList.add('hidden');
-    iframeContainer2.style.display = 'block';
+     function showWorkPage() {
+            var header = document.querySelector('header');
+            header.classList.add('small');
 
-    var iframe2 = document.getElementById('iframe2');
-    iframe2.style.display = 'block';
+            var navLinks = document.querySelectorAll('nav ul li a');
+            navLinks.forEach(function(link) {
+                link.classList.add('small');
+            });
 
-    var iframe1 = document.getElementById('iframe1');
-    iframe1.style.display = 'none';
+            var iframeContainer2 = document.querySelector('.iframe-container2');
+            iframeContainer2.style.display = 'block';
 
-    var overlay = document.querySelector('.overlay');
-    overlay.style.display = 'none';
+            var iframe2 = document.getElementById('iframe2');
+            iframe2.style.display = 'block';
 
-    document.querySelector('.top-left-text').classList.add('hidden'); 
-    var contactText = document.querySelector('.contact-text');
+            var iframe1 = document.getElementById('iframe1');
+            iframe1.style.display = 'none';
+
+            var overlay = document.querySelector('.overlay');
+            overlay.style.display = 'none';
+
+            document.querySelector('.top-left-text').classList.add('hidden'); // Hide top-left text
+                var contactText = document.querySelector('.contact-text');
     contactText.classList.toggle('hidden');
-}
+        }
 
 function toggleContactText() {
     var contactText = document.querySelector('.contact-text');
-    var iframeContainer1 = document.querySelector('.iframe-container1');
-
+    console.log('Current display:', contactText.style.display);
     if (contactText.style.display === 'none' || contactText.style.display === '') {
         contactText.style.display = 'block';
-        iframeContainer1.classList.remove('hidden'); // Enable pointer events
+        console.log('Displaying contact text');
     } else {
         contactText.style.display = 'none';
-        iframeContainer1.classList.add('hidden'); // Disable pointer events
+        console.log('Hiding contact text');
     }
+
 }
+
 
 
 }
