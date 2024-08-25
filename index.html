@@ -6,7 +6,13 @@
     <style>
         @font-face {
             font-family: 'HelveticaNeueCondensedBlack';
-            src: url('/Users/liuyingxin/Desktop/web/web/fonts/HelveticaNeueCondensedBlack.ttf') format('truetype');
+            src: url('./fonts/HelveticaNeueCondensedBlack.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+                @font-face {
+            font-family: 'Butler_Light';
+            src: url('./fonts/Butler_Light.otf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
@@ -43,6 +49,7 @@
             font-size: 6vw;
             height: 12vh;
             transition: height 0.3s, font-size 0.3s;
+            font-family: 'HelveticaNeueCondensedBlack', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
         }
 
         section {
@@ -176,7 +183,7 @@
             font-weight: normal;
             width: calc(100% - 300px);
             z-index: 1002;
-            font-family: Butler-light, sans-serif;
+            font-family: 'Butler_Light', sans-serif;
             padding: 10px;
             border-radius: 5px;
             color: black;
@@ -202,7 +209,7 @@
             padding: 0px;
             border-radius: 5px;
             z-index: 1003; /* 确保在其他内容之上 */
-            font-family: Butler-light, sans-serif;
+            font-family: 'Butler_Light', sans-serif;
             margin: 0;
             text-align: center;
             background-color: black;
